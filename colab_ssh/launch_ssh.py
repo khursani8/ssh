@@ -16,9 +16,7 @@ def launch_ssh(token,
                publish=True,
                verbose=False,
                region="us",
-               port=22,
-               remote_addr=None,
-               ):
+               remote_addr=None):
 
     # Ensure the ngrok auth token is not empty
     if(not token):
@@ -66,8 +64,8 @@ def launch_ssh(token,
 
     # Create tunnel
     proc = Popen(shlex.split(
-        './ngrok tcp --authtoken {} --region {} {} {}'.format(
-            token, region, " ".join(extra_params),port)
+        './ngrok tcp --authtoken {} --region {} {} 932'.format(
+            token, region, " ".join(extra_params))
     ), stdout=PIPE)
 
     time.sleep(4)
